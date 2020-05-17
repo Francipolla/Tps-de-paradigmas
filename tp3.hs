@@ -92,3 +92,18 @@ listaDePrecios unJugador =((map precioPropiedad).propiedadesCompradas) unJugador
 precioPropiedad :: Propiedad -> Int
 precioPropiedad (a,b) = b
 
+ultimaRonda :: Participante -> Accion
+ultimaRonda unJugador = foldr1 (.) (accionesARealizar unJugador)
+
+juegoFinal :: Participante -> Participante -> String 
+juegoFinal participante1 participante2 | (cantidadDeDinero ((ultimaRonda participante1) participante1)) < (cantidadDeDinero ((ultimaRonda participante2) participante2))  = ("Ganador " ++ )(nombre participante2)
+                                       | otherwise = ("Ganador " ++)(nombre participante1)
+
+
+hacerBerrinche :: Propiedad -> Accion
+hacerBerrinche propiedad unJugador | (cantidadDeDinero unJugador) < (precioPropiedad propiedad) = hacerBerrinche propiedad (gritar.(agregarDinero 10) $ unJugador)
+                                   | otherwise                                                  = unJugador {propiedadesCompradas = propiedad : (propiedadesCompradas unJugador)}                                    
+
+
+francisco :: Participante
+francisco = UnParticipante "Francisco" 0 "DaleBoo"        [] []                                    
