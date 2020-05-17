@@ -102,7 +102,7 @@ juegoFinal participante1 participante2 | (cantidadDeDinero ((ultimaRonda partici
 
 hacerBerrinche :: Propiedad -> Accion
 hacerBerrinche propiedad unJugador | (cantidadDeDinero unJugador) < (precioPropiedad propiedad) = hacerBerrinche propiedad (gritar.(agregarDinero 10) $ unJugador)
-                                   | otherwise                                                  = unJugador {propiedadesCompradas = propiedad : (propiedadesCompradas unJugador)}                                    
+                                   | otherwise                                                  = (restarDinero (precioPropiedad propiedad)) (unJugador {propiedadesCompradas = propiedad : (propiedadesCompradas unJugador)})                                  
 
 
 francisco :: Participante
