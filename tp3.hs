@@ -16,7 +16,7 @@ accionesARealizar    :: [Accion]
 type Accion = Participante -> Participante
 
 carolina :: Participante
-carolina = UnParticipante "Carolina" 500 "Accionista"        [] [ pasarPorElBanco, pagarAAccionistas]
+carolina = UnParticipante "Carolina" 500 "Accionista"        [] [ pasarPorElBanco, pagarAAccionistas] 
 manuel   :: Participante 
 manuel   = UnParticipante "Manuel"   500 "Oferente singular" [] [ pasarPorElBanco, enojarse]
 
@@ -106,4 +106,5 @@ hacerBerrinche propiedad unJugador | (cantidadDeDinero unJugador) < (precioPropi
 
 
 francisco :: Participante
-francisco = UnParticipante "Francisco" 0 "DaleBoo"        [] []                                    
+francisco = UnParticipante "Francisco" 0 "DaleBoo"        [] []      
+
